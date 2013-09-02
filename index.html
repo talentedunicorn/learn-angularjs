@@ -9,25 +9,8 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		
 </head>
 <body>
-	<div ng-app="myApp">
-		<div ng-controller="AvengersCtrl">
-			<table class="table">
-				<tr>
-					<th>Name</th>
-					<th>Character</th>
-				</tr>
-				<!-- <tr ng-repeat="actor in avengers.cast | orderBy: 'Name'"> -->
-				<!-- <tr ng-repeat="actor in avengers.cast | orderBy: '-Name'"> -->
-				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: 3"> -->
-				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: -3"> -->
-				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: -3 | orderBy:'Name'"> -->
-				<tr ng-repeat="actor in avengers.cast | limitTo: -3 | orderBy:'Name'">
-					<td>{{actor.Name | lowercase}}</td>
-					<td>{{actor.Character| uppercase}}</td>
-				</tr>
-			</table>
-		</div>
-
+	<div ng-app="superhero">
+		<superman></superman>
 	</div>
 </body>
 </html>
