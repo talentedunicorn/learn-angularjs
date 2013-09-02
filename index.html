@@ -11,21 +11,19 @@
 <body>
 	<div ng-app="myApp">
 		<div ng-controller="AvengersCtrl">
-
-			<input type="text" ng-model="search.$" placeholder="Search Any">
-			
-			<input type="text" ng-model="search.Name" placeholder="Search By Name">
-
-			<input type="text" ng-model="search.Character" placeholder="Search By Character">
-
 			<table class="table">
 				<tr>
 					<th>Name</th>
 					<th>Character</th>
 				</tr>
-				<tr ng-repeat="actor in avengers.cast | filter:search">
-					<td>{{actor.Name}}</td>
-					<td>{{actor.Character}}</td>
+				<!-- <tr ng-repeat="actor in avengers.cast | orderBy: 'Name'"> -->
+				<!-- <tr ng-repeat="actor in avengers.cast | orderBy: '-Name'"> -->
+				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: 3"> -->
+				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: -3"> -->
+				<!-- <tr ng-repeat="actor in avengers.cast | limitTo: -3 | orderBy:'Name'"> -->
+				<tr ng-repeat="actor in avengers.cast | limitTo: -3 | orderBy:'Name'">
+					<td>{{actor.Name | lowercase}}</td>
+					<td>{{actor.Character| uppercase}}</td>
 				</tr>
 			</table>
 		</div>
