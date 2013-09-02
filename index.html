@@ -4,24 +4,32 @@
 	<meta charset="UTF-8">
 	<title>Angular tutorial</title>
 	<script src="angular.min.js"></script>
-	<script src="main.js"></script>	
+	<script src="main.js"></script>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		
 </head>
 <body>
 	<div ng-app="myApp">
-		<!-- <input type="text" ng-model="data.message">
-		<h1>{{data.message}}</h1> -->
+		<div ng-controller="AvengersCtrl">
 
-		<div ng-controller="FirstCtrl">
-			<input type="text" ng-model="data.message">
-			<h1>{{data.message}}</h1>
+			<input type="text" ng-model="search.$" placeholder="Search Any">
+			
+			<input type="text" ng-model="search.Name" placeholder="Search By Name">
+
+			<input type="text" ng-model="search.Character" placeholder="Search By Character">
+
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<th>Character</th>
+				</tr>
+				<tr ng-repeat="actor in avengers.cast | filter:search">
+					<td>{{actor.Name}}</td>
+					<td>{{actor.Character}}</td>
+				</tr>
+			</table>
 		</div>
 
-		<div ng-controller="SecondCtrl">
-			<input type="text" ng-model="data.message">
-			<h1>{{data.message}}</h1>
-			<h1>{{data.message | reverse}}</h1>
-			<!-- <h1>{{reversedMessage(data.message)}}</h1> -->
-		</div>
 	</div>
 </body>
 </html>
