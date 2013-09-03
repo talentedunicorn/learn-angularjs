@@ -6,13 +6,18 @@
 	<script src="angular.min.js"></script>
 	<script src="main.js"></script>
 
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		 -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/css/foundation.min.css">
 </head>
 <body>
-	<div ng-app="superApp">
-		<superhero flight speed strength>Superman</superhero>
-		<superhero speed>The Flash</superhero>
-		<superhero strength>The Hulk</superhero>
+	<div ng-app="choreApp">
+		<div ng-controller="ChoreCtrl">
+			<kid done="logChore(chore)"></kid>
+			<kid></kid>
+			<kid></kid>
+			<kid></kid>
+			<kid></kid>
+		</div>
 	</div>
 </body>
 </html>
