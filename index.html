@@ -9,8 +9,10 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		
 </head>
 <body>
-	<div ng-app="behaviorApp">
-		<h1 enter="well" leave>Enter me!</h1>
+	<div ng-app="twitterApp">
+		<div ng-controller="AppCtrl">
+			<div enter="loadMoreTweets()">Roll over to load more tweets</div>
+		</div>
 	</div>
 </body>
 </html>
