@@ -10,13 +10,9 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/css/foundation.min.css">
 </head>
 <body>
-	<div ng-app="drinkApp">
+	<div ng-app="phoneApp">
 		<div ng-controller="AppCtrl">
-			Crtl
-			<input type="text" ng-model="ctrlFlavor">
-			
-			Directive
-			<drink flavor="ctrlFlavor"></drink>
+			<phone dial="callHome(message)"></phone>
 		</div>
 	</div>
 </body>
