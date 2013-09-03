@@ -8,15 +8,9 @@ app.controller("AppCtrl", function($scope) {
 app.directive("drink", function(){
 	return {
 		restrict: "E",
-		template: "<div>{{flavor}}</div>",
+		template: "<input type='text' ng-model='flavor'/>",
 		scope: {
-			flavor: "@" // Passes the attribute as a string to the scope
-		}//,
-		// link: function (scope, element, attrs) {
-		// 	scope.flavor = attrs.flavor;
-		// }
-		
+			flavor: "=" // Passes object to scope
+		}
 	}
 })
-
-app.directive
