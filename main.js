@@ -1,26 +1,20 @@
 var app = angular.module("myApp", []);
 
-var controllers = {}
-
-controllers.AppCtrl = function($scope) {
-	
-	this.sayHi = function () {
-		alert('Hi!');
-	}
-
-	return $scope.AppCtrl = this;
-}
-
-app.controller(controllers);
-
-
-var directives = {}
-
-directives.panel = function() {
+app.directive("zippy", function(){
 	return {
 		restrict: "E",
-		template: '<h1>Panel</h1>'
-	}
-}
+		transclude: true,
+		scope: {
+			title: "@",
+			content: "@"
+		},
+		template: '<div><h3 ng-click="toggleContent()">{{title}}</h3><div ng-show="isContentVisible" ng-transclude></div></div>',
+		link: function(scope) {
+			scope.isContentVisible = false;
 
-app.directive(directives);
+			scope.toggleContent = function() {
+				scope.isContentVisible = !scope.isContentVisible;
+			}
+		}
+	}
+})

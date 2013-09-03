@@ -11,15 +11,13 @@
 </head>
 <body>
 	<div ng-app="myApp">
-		<div ng-controller="AppCtrl">
-				
-			<div class="button" ng-click="AppCtrl.sayHi()">Click Me!</div>
-			
-			<panel></panel>
-			<panel></panel>
-			<panel></panel>
+		
+		<input type="text" name="" placeholder="Title" ng-model="model.title">
+		<input type="text" name="" placeholder="Content" ng-model="model.content">
 
-		</div>
+		<zippy title="{{model.title}}">
+			<p>Content is: {{model.content}}</p>
+		</zippy>
 	</div>
 </body>
 </html>
