@@ -1,23 +1,21 @@
-var app = angular.module("choreApp", []);
+var app = angular.module("drinkApp", []);
 
 
-app.controller("ChoreCtrl", function($scope) {
-	$scope.logChore = function(chore) {
-		if(chore) {
-			console.log(chore + " is done!");
-		}
-	}
+app.controller("AppCtrl", function($scope) {
+	$scope.ctrlFlavor = 'blackberry'
 })
 
-app.directive("kid", function(){
+app.directive("drink", function(){
 	return {
 		restrict: "E",
-		// scope: {}, // To isolate the scope, so each element has it's own scope
+		template: "<div>{{flavor}}</div>",
 		scope: {
-			done: "&"
-		},
-		template: "<div><input type='text' ng-model='chore' />" + "<p>{{chore}}</p>" +
-		"<a class='button' ng-click='done({chore:chore})'>Done</a></div>"
+			flavor: "@" // Passes the attribute as a string to the scope
+		}//,
+		// link: function (scope, element, attrs) {
+		// 	scope.flavor = attrs.flavor;
+		// }
+		
 	}
 })
 
