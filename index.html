@@ -3,17 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular tutorial</title>
-	<script src="angular.min.js"></script>
-	<script src="main.js"></script>
-
 	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		 -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.2.3/css/foundation.min.css">
 </head>
 <body>
 	<div ng-app="app">
-
-		<dumbPassword></dumbPassword>
-	
+		<div ng-controller="AppCtrl">
+			<div mydirective></div>
+			<!-- <myElem>I am an element</myElem>	 -->		
+		</div>
 	</div>
+
+
+<script src="angular.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
