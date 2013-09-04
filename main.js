@@ -1,16 +1,25 @@
 var app = angular.module("myApp", []);
 
-app.factory("game", function(){ // This is a provider
+app.directive("clock", function () {
 	return {
-		title: "Super Meat Boy!"
+		restrict: "E",
+		scope: {
+			timezone: "@"
+		},
+		template: "<div>12:00pm {{timezone}}</div>"
 	}
 })
 
-
-angular.injector(["myApp"]).invoke(function(game){ // Passes providers into functions (** 1 injector per module)
-	console.log(game.title);
-})
-
-app.controller("AppCtrl", function($scope, game){ 
-	$scope.title = game.title
+app.directive("panel", function(){
+	return {
+		restrict: "E",
+		transclude: true,
+		scope: {
+			title: "@"
+		},
+		template: '<div style="border:3px solid #000">' + 
+			'<div class="alert-box">{{title}}</div>'+
+			'<div ng-transclude></div>' + 
+			'</div>'
+	}
 })
