@@ -1,16 +1,16 @@
-var app = angular.module("app", []);
+var app = angular.module("myApp", []);
 
-app.controller("AppCtrl", function($scope) {
-	console.log("Controller scope: ", $scope);
+app.config(function($routeProvider) {
+	$routeProvider.when('/', 
+		{
+			templateUrl: "view/app.html",
+			controller: "AppCtrl"
+		}
+	)
 })
 
-app.directive("mydirective", function() {
-	return {
-		link: function(scope, element, attrs) {
-			console.log("Directive scope: ", scope);
-			console.log("Directive element: ", element);
-		}
+app.controller("AppCtrl", function($scope){
+	$scope.model = {
+		message: "App controller yo!"
 	}
 })
-
-// '$scope' in the controller is a global provider while 'scope' can be renamed to anything and still work
