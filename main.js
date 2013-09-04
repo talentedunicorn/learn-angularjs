@@ -1,24 +1,15 @@
 var app = angular.module("myApp", []);
 
-
-app.config(function($provide){
-	$provide.provider("game", function(){
-		return {
-			$get: function() {
-				return {
-					title: "Super Meat Boy!"
-				}	
-			}
-		}
-	})
+app.factory("game", function(){ // This is a provider
+	return {
+		title: "Super Meat Boy!"
+	}
 })
 
 
-// app.factory("game", function(){
-// 	return {
-// 		title: "Super Meat Boy!"
-// 	}
-// })
+angular.injector(["myApp"]).invoke(function(game){ // Passes providers into functions (** 1 injector per module)
+	console.log(game.title);
+})
 
 app.controller("AppCtrl", function($scope, game){ 
 	$scope.title = game.title
