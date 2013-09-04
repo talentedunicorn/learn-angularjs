@@ -12,7 +12,20 @@ app.config(function($routeProvider) {
 		})
 })
 
-app.controller("AppCtrl", function($rootScope){
+
+app.directive("error", function($rootScope){
+	return {
+		restrict: "E", 
+		template: "<div class='alert-box alert' ng-show='isError'>Error 666: The world is ending!!</div>",
+		link: function(scope) {
+			$rootScope.$on("$routeChangeError", function(event, current, previous, rejection){
+				scope.isError = true;
+			})
+		}
+	}
+})
+
+app.controller("AppCtrl", function($rootScope){ // Don't use $rootScope unless it's using an angular component
 	$rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
 		console.log("Event: ", event)
 		console.log("Current: ", current)
@@ -32,8 +45,8 @@ var viewCtrl = app.controller("ViewCtrl", function($scope, $route){
 viewCtrl.loadData = function ($q, $timeout) {
 	var defer = $q.defer();
 	$timeout(function(){
-		defer.reject("Error 666: The world is ending");
-		// console.log()
+		// defer.resolve();
+		defer.reject();
 	}, 1000); // Wait 2 seconds then resove the promise
 	return defer.promise;
 }
