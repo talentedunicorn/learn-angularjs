@@ -6,40 +6,29 @@ app.config(function($routeProvider) {
 		{
 			templateUrl: "view/app.html",
 			controller: "AppCtrl"
-		}).
-		when('/pizza', {
-			template: "<h3>Did anyone order pizza?!</h3>"
-		}).
-		when('/burger/:size/:drink', {
-			redirectTo: function(routeParams, path, search) {
-				console.log(routeParams)
-				console.log(path)
-				console.log(search)
-
-				if(!routeParams.drink == "") {
-					console.log(routeParams.drink);
-					return "/orders/checkout/"
-				}else {
-					console.log("No drink selected");
-					return "/orders/sets/" + routeParams.size
-				}
-	
-			}
-		}).
-		when('/orders/sets/:size', {
-			template: '<h3>Sets menu</h3>'
-		}).
-		when('/orders/checkout', {
-			template: "<h3>Thanks for shopping with us, see you next time!</h3>"
-		}).
-		otherwise({
-			redirectTo: "/"
 		})
 })
 
-app.controller("AppCtrl", function($scope, $routeParams){
+app.controller("AppCtrl", function($scope, $q){
+
+	var defer = $q.defer();
+
+	defer.promise
+	.then(function(weapon) {
+		alert("You can have my " + weapon)
+		return "axe"
+	})
+	.then(function(weapon) {
+		alert("And my " + weapon)
+		return "sword"
+	})
+	.then(function(weapon) {
+		alert("Also my " + weapon)
+	})
+
+	defer.resolve("Gun");
+
 	$scope.model = {
-		message: "I am a message"
-		// message: "Address: " + $routeParams.state + ", " + $routeParams.country
+		message: "I am an APP o.O"
 	} 
 })
