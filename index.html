@@ -5,19 +5,23 @@
 	<title>Angular tutorial</title>
 	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">		 -->
 	<link rel="stylesheet" href="foundation.min.css">
+
+	<script src="angular.js"></script>
+	<script src="main.js"></script>
 </head>
-<body>
+<body style="padding: 20px 20px;">
 
-	<div ng-app="myApp">
+	<div ng-app="app">
 
-		<clock timezone="MST"></clock>
-		<panel title="Ode' to Title">
-			<clock timezone="PST"></clock>	
-		</panel>
+		<div
+			class="button expand"
+			ng-repeat="item in 'somewords'.split('') track by $index"
+			ng-click="$log.warn($event); ev=$event"
+			>
+			{{$index + 1}}. {{item}}
+			{{ev.pageX}}
+		</div>
 		
 	</div>
-
-<script src="angular.min.js"></script>
-<script src="main.js"></script>
 </body>
 </html>
