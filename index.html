@@ -11,12 +11,12 @@
 </head>
 <body style="padding: 20px 20px;">
 
-	<div ng-app="app">
-		<country>
-			<state>
-				<city></city>
-			</state>
-		</country>
+	<div ng-app="app" ng-controller="AppCtrl as app">
+		<div ng-repeat-start="thing in app.things">
+			{{thing}}
+		</div>
+		Anthing in here
+		<div ng-repeat-end>Also in here with binding {{thing}}</div>
 	</div>
 </body>
 </html>
