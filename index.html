@@ -11,16 +11,8 @@
 </head>
 <body style="padding: 20px 20px;">
 
-	<div ng-app="app">
-
-		<div
-			class="button expand"
-			ng-repeat="item in 'somewords'.split('') track by $index"
-			ng-click="$log.warn($event); ev=$event"
-			>
-			{{$index + 1}}. {{item}}
-			{{ev.pageX}}
-		</div>
+	<div ng-app="app" ng-controller="RoomCtrl as room">
+		<div class="button" ng-click="room.openDoor()">Oi, click me</div>
 		
 	</div>
 </body>
